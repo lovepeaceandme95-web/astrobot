@@ -641,30 +641,30 @@ class ProjectKnowledgePlugin(Star):
         start = None
         start_level = None
 
-        for index, line in enumerate(lines):
-            match = re.match(r"^\?(#{1,6})\s+(.+?)\s*$", line)
+       for index, line in enumerate(lines):
+    match = re.match(r"^\\?(#{1,6})\s+(.+?)\s*$", line)
 
-            if not match:
-                continue
+    if not match:
+        continue
 
-            heading = match.group(2).strip().casefold()
+    heading = match.group(2).strip().casefold()
 
-            if heading == wanted:
-                start = index
-                start_level = len(match.group(1))
-                break
+    if heading == wanted:
+        start = index
+        start_level = len(match.group(1))
+        break
 
         if start is None:
             return f"没有找到记忆章节：{section}"
 
         end = len(lines)
 
-        for index in range(start + 1, len(lines)):
-            match = re.match(r"^\\?(#{1,6})\s+", lines[index])
+       for index in range(start + 1, len(lines)):
+    match = re.match(r"^\\?(#{1,6})\s+", lines[index])
 
-            if match and len(match.group(1)) <= start_level:
-                end = index
-                break
+    if match and len(match.group(1)) <= start_level:
+        end = index
+        break
 
         result = "\n".join(lines[start:end]).strip()
 
