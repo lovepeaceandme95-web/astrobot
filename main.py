@@ -529,7 +529,7 @@ class ProjectKnowledgePlugin(Star):
     # 工具一：读取项目文档
     # ========================================================
 
-     @filter.llm_tool(name="read_project_doc")
+ @filter.llm_tool(name="read_project_doc")
     async def read_project_doc(
         self,
         event: AstrMessageEvent,
