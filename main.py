@@ -544,6 +544,16 @@ class ProjectKnowledgePlugin(Star):
 
         content, error = read_allowed_doc(doc_name)
 
+        print(f"[记忆诊断] 实际项目目录：{PROJECT_ROOT.resolve()}")
+
+        docs_root, docs_error = get_safe_docs_root()
+        print(f"[记忆诊断] 实际文档目录：{docs_root}")
+        print(f"[记忆诊断] 目录检查错误：{docs_error}")
+        print(f"[记忆诊断] 文件读取错误：{error}")
+        print(f"[记忆诊断] 读取字符数量：{len(content) if content else 0}")
+
+        if error:
+            return error
         if error:
             return error
 
