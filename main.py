@@ -529,18 +529,13 @@ class ProjectKnowledgePlugin(Star):
     # 工具一：读取项目文档
     # ========================================================
 
-    @filter.llm_tool(name="read_project_doc")
+     @filter.llm_tool(name="read_project_doc")
     async def read_project_doc(
         self,
         event: AstrMessageEvent,
         doc_name: str,
     ):
-        """读取 md 目录中的一份项目文档。
-
-        Args:
-            doc_name(string): 文件名，例如 CLAUDE.md、ARCHITECTURE.md、
-                DEVELOPMENT_STATUS.md、AI_HANDOFF.md。
-        """
+        """读取 md 目录中的一份项目文档。"""
 
         content, error = read_allowed_doc(doc_name)
 
@@ -552,8 +547,6 @@ class ProjectKnowledgePlugin(Star):
         print(f"[记忆诊断] 文件读取错误：{error}")
         print(f"[记忆诊断] 读取字符数量：{len(content) if content else 0}")
 
-        if error:
-            return error
         if error:
             return error
 
