@@ -1,6 +1,6 @@
 name: astrbot_plugin_project_knowledge
-display_name: 项目知识库（受控人格修改）
-desc: 按需搜索和读取游戏项目指定 Markdown 文档，并支持经用户确认后修改 PERSONALITY.md。
-version: 1.1.0
+display_name: 项目知识库（受控人格与记忆管理）
+desc: 按需搜索和读取游戏项目文档与长期记忆，并支持经用户确认后修改 MEMORY.md 和 PERSONALITY.md。
+version: 1.2.0
 author: Local
 astrbot_version: ">=4.29,<5"
