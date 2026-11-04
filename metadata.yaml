@@ -1,0 +1,6 @@
+name: astrbot_plugin_project_knowledge
+display_name: 项目知识库（只读）
+desc: 按需搜索和读取游戏项目中的指定 Markdown 文档。
+version: 1.0.0
+author: Local
+astrbot_version: ">=4.29,<5"
