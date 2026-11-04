@@ -365,9 +365,9 @@ class ProjectKnowledgePlugin(Star):
             PENDING_PROPOSALS[session_id] = proposal
 
         confirm_text = (
-            "确认修改记忆"
+            "确认"
             if filename == MEMORY_DOC
-            else "确认修改人格"
+            else "确认"
         )
 
         return (
