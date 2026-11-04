@@ -642,7 +642,7 @@ class ProjectKnowledgePlugin(Star):
         start_level = None
 
         for index, line in enumerate(lines):
-            match = re.match(r"^(#{1,6})\s+", lines[index])
+            match = re.match(r"^\?(#{1,6})\s+(.+?)\s*$", line)
 
             if not match:
                 continue
@@ -660,7 +660,7 @@ class ProjectKnowledgePlugin(Star):
         end = len(lines)
 
         for index in range(start + 1, len(lines)):
-            match = re.match(r"^(#{1,6})\s+", lines[index])
+            match = re.match(r"^\\?(#{1,6})\s+", lines[index])
 
             if match and len(match.group(1)) <= start_level:
                 end = index
