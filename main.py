@@ -768,3 +768,5 @@ class ProjectKnowledgePlugin(Star):
     "游戏项目文档检索与受控人格、记忆管理",
     "1.2.0",
 )
+class ProjectKnowledgePluginEntry(ProjectKnowledgePlugin):
+    pass
