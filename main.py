@@ -642,7 +642,7 @@ class ProjectKnowledgePlugin(Star):
         start_level = None
 
         for index, line in enumerate(lines):
-            match = re.match(r"^(#{1,6})\s+(.+?)\s*$", line)
+            match = re.match(r"^(#{1,6})\s+", lines[index])
 
             if not match:
                 continue
