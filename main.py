@@ -637,7 +637,7 @@ class ProjectKnowledgePlugin(Star):
         lines = content.splitlines()
         wanted = section.strip().casefold()
 
-        # 查找目标章节标题
+        # 查找目标章节标题，兼容标题前意外存在的一个反斜杠
         start = None
         start_level = None
 
@@ -657,7 +657,7 @@ class ProjectKnowledgePlugin(Star):
         if start is None:
             return f"没有找到记忆章节：{section}"
 
-        # 查找当前章节的结束位置
+        # 遇到同级或更高级标题时，当前章节结束
         end = len(lines)
 
         for index in range(start + 1, len(lines)):
@@ -667,7 +667,6 @@ class ProjectKnowledgePlugin(Star):
                 end = index
                 break
 
-        # 提取章节内容
         result = "\n".join(lines[start:end]).strip()
 
         return (
