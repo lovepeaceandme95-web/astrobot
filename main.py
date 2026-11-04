@@ -99,12 +99,12 @@ class ProjectKnowledgePlugin(Star):
         content, error = read_allowed_doc(doc_name)
 
         if error:
-            yield event.plain_result(error)
+            return (error)
             return
 
         filename = ALLOWED_DOCS[doc_name.strip().lower()]
 
-        yield event.plain_result(
+        return (
             f"文档：{filename}\n\n{content}"
         )
 
@@ -123,11 +123,11 @@ class ProjectKnowledgePlugin(Star):
         query = query.strip()
 
         if not query:
-            yield event.plain_result("搜索关键词不能为空。")
+            return ("搜索关键词不能为空。")
             return
 
         if len(query) > 100:
-            yield event.plain_result("搜索关键词不能超过100个字符。")
+            return ("搜索关键词不能超过100个字符。")
             return
 
         terms = [
@@ -175,7 +175,7 @@ class ProjectKnowledgePlugin(Star):
                 )
 
         if not results:
-            yield event.plain_result(
+            return (
                 f"在五份项目文档中没有找到：{query}"
             )
             return
@@ -194,4 +194,4 @@ class ProjectKnowledgePlugin(Star):
 
         response = "\n".join(output)
 
-        yield event.plain_result(response[:12000])
+        return (response[:12000])
